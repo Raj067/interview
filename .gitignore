@@ -20,11 +20,3 @@ staticfiles/
 
 # Ignore the sqlite3 database
 *.sqlite3
-
-# Ignore the variable.json file so as to use different 
-# configurations both in production and development environment
-variable.json
-
-# Ignore config.json folder so as to enable admins to 
-# change some settings during run time without redeploy
-config.json

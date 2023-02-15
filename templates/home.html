@@ -1,22 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "index.html" %}
+{% block meta %}
+<title>Product Store</title>
+{% endblock %}
+{% block content %}
+<div class="text-center mt-5">
+    <h1>Product Store</h1>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>
-        Hello World
-    </h1>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. At nemo distinctio quibusdam blanditiis, aliquam
-        repudiandae architecto alias. Earum tenetur dolorum odit iure libero molestiae. Suscipit nostrum libero labore
-        velit maxime.
-    </p>
-</body>
-
-</html>
+<div class="container m-5">
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col-1">#</th>
+                    <th scope="col-2">Product Name</th>
+                    <th scope="col-2">Product Price</th>
+                    <th scope="col-5">Product Description</th>
+                    <th scope="col-2">Product Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dx in data %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{dx.name}}</td>
+                    <td>{{dx.price}}</td>
+                    <td>{{dx.description}}</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="/edit-product-{{dx.id}}/">Edit</a>
+                        <a class="btn btn-danger btn-sm" href="/delete-product-{{dx.id}}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/add-product/" class="btn btn-primary btn-sm">Add Product</a>
+    </div>
+</div>
+{% endblock %}
